@@ -1,12 +1,12 @@
 const { DataTypes } = require('sequelize');
 const { Sequelize, sequelize } = require('../db/config');
 
-// TODO - define the User model
-let User = sequelize.define("User", {
+// TODO - define the Deck model
+let Deck = sequelize.define("Deck", {
 
     
 });
 
 module.exports = {
-    User
+    Deck
 };
