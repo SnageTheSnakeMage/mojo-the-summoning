@@ -25,5 +25,9 @@ describe('User', () => {
   /**
    * Create more tests
    * E.g. check that the username of the created user is actually gandalf
+   * TESTS TODO:
+   * Associations (Deck)
+   * Creation & Deletion is possible
+   * 
    */
 })

@@ -8,7 +8,7 @@ let card
 // clear db and create new user before tests
 beforeAll(async () => {
   await db.sync({ force: true })
-    card = await Card.create({})
+    card = await Card.create({ name: "Bulk Brogan", mojo: 10, stamina: 5})
 })
 
 // clear db after tests
