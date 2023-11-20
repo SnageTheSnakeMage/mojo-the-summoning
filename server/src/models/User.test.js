@@ -1,5 +1,6 @@
 const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
 const { User } = require('./User.js')
+const { Deck } = require('./Deck.js')
 const { db } = require('../db/config.js')
 
 // define in global scope
@@ -14,12 +15,13 @@ beforeAll(async () => {
 afterAll(async () => await db.sync({ force: true }))
 
 describe('User', () => {
-    test("can create a userinstance", async () => {
-
-    })
   it('has correct properties', async () => {
       expect(user).toHaveProperty('id')
       expect(user).toHaveProperty('username')
+  })
+  it('has 1 deck', async () => {
+      let deck = await Deck.create({ name: })
+      expect(user.Deck).toHaveProperty('id')
   })
 
   /**

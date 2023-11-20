@@ -8,7 +8,7 @@ let attack
 // clear db and create new user before tests
 beforeAll(async () => {
   await db.sync({ force: true })
-    attack = await Attack.create({ title: "Boom", mojoCost: 2, staminaCost: 1 })
+    attack = await Attack.create({ title: "Piledriver", mojoCost: 2, staminaCost: 1 })
 })
 
 // clear db after tests

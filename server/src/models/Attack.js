@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
+const { db } = require("../db/config")
 
 // TODO - define the Attack model
-let Attack = sequelize.define("Attack", {
+let Attack = db.define("Attack", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true

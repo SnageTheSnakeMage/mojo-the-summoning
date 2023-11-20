@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
+const { db } = require("../db/config")
 
 // TODO - define the Card model
-let Card = sequelize.define("Card", {
+let Card = db.define("Card", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true
