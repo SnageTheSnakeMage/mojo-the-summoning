@@ -7,11 +7,13 @@ const { Attack } = require('./Attack')
 //set up the associations here
 User.hasOne(Deck)
 Deck.belongsTo(User)
-Deck.hasMany(Cards)
+
+Deck.hasMany(Card)
 Card.belongsTo(Deck)
-Card.hasMany(Attack, { through: 'CardAttacks' })
-Attack.hasMany(Card, { through: 'CardAttacks' })
 
+Card.belongsToMany(Attack, { through: 'CardAttacks' })
+Attack.belongsToMany(Card, { through: 'CardAttacks' })
 
+console.log("HERE!! set up relations")
 // and then export them all below
 module.exports = { User, Card, Deck, Attack }

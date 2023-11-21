@@ -1,6 +1,8 @@
 const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
 const { Attack } = require('./Attack')
+const { Card } = require('./Card')
 const { db } = require('../db/config')
+const index = require('./index')
 
 // define in global scope
 let attack
@@ -21,7 +23,14 @@ describe('Attack', () => {
       expect(attack).toHaveProperty('mojoCost')
       expect(attack).toHaveProperty('staminaCost')
   })
-
+    it('can have multiple cards', async () => {
+        attack.cards = await Card.bulkCreate([
+            { title: "huge", mojo: 10, stamina: 0 },
+            { title: "aver", mojo: 5, stamina: 5 },
+            {title:"tinny", mojo: 1, stamina: 2}
+        ])
+        expect(attack.cards.length).toBe(3)
+    })
   /**
    * Create more tests
    * E.g. check that the username of the created user is actually gandalf

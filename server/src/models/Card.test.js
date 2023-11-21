@@ -1,6 +1,8 @@
 const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
 const { Card } = require('./Card')
-const { db }  = require('../db/config')
+const { Attack } = require('./Attack')
+const { db } = require('../db/config')
+const index = require('./index')
 
 // define in global scope
 let card
@@ -21,6 +23,14 @@ describe('Card', () => {
         expect(card).toHaveProperty('mojo')
         expect(card).toHaveProperty('stamina')
         expect(card).toHaveProperty('imgUrl')
+    })
+    it('can have many attacks', async () => {
+        card.attacks = await Attack.bulkCreate([
+            { title: "smack", mojoCost: 3, staminaCost: 1 },
+            { title: "kick", mojoCost: 2, staminaCost: 2 },
+            { title: "grab", mojoCost: 1, staminaCost: 3 }
+        ])
+        expect(card.attacks.length).toBe(3)
     })
 
   /**

@@ -1,5 +1,6 @@
 const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
 const { Deck } = require('./Deck')
+const { User } = require('./User')
 const { db } = require('../db/config')
 
 // define in global scope
@@ -21,6 +22,12 @@ describe('Deck', () => {
       expect(deck).toHaveProperty('name')
       expect(deck).toHaveProperty('xp')
   })
+    it('has one user', async () => {
+        deck.user = await User.create(
+            {username: "kimbo"}
+        )
+        expect(deck.user.username).toBe("kimbo")
+    })
 
   /**
    * Create more tests
