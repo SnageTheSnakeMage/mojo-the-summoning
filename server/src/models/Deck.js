@@ -1,10 +1,14 @@
-const { DataTypes } = require('sequelize');
-const { Sequelize, sequelize } = require('../db/config');
+const { Sequelize, DataTypes } = require('sequelize');
+const { db } = require("../db/config")
 
 // TODO - define the Deck model
-let Deck = sequelize.define("Deck", {
-
-    
+let Deck = db.define("Deck", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+    },
+    name: DataTypes.STRING,
+    xp: DataTypes.INTEGER
 });
 
 module.exports = {

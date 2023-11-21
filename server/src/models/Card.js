@@ -1,9 +1,16 @@
-const { DataTypes } = require('sequelize');
-const { Sequelize, sequelize } = require('../db/config');
+const { Sequelize, DataTypes } = require('sequelize');
+const { db } = require("../db/config")
 
 // TODO - define the Card model
-let Card = sequelize.define("Card", {
-
+let Card = db.define("Card", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+    },
+    name: DataTypes.STRING,
+    mojo: DataTypes.INTEGER,
+    stamina: DataTypes.INTEGER,
+    imgUrl: DataTypes.STRING
 
 });
 
